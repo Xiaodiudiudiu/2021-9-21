@@ -1,0 +1,35 @@
+#include<iostream>;
+
+struct listnode
+{
+	int data;
+	listnode* next;
+};
+int main()
+{
+	using namespace std;
+	listnode* a;
+	
+	listnode* head;
+	head = NULL;
+	a = NULL;
+
+
+	for (int i = 0; i < 10; i++)
+	{
+		listnode* temp = new listnode;//这是核心！每次循环都随机生成一个新的动态空间给temp！
+		temp->data = i;
+		temp->next = NULL;
+		if (head == NULL)//head是链表的头 算是一个mark
+			head = temp;
+		else a->next = temp;//a是temp的替身先指向temp 再成为temp
+		a = temp;
+	}
+	listnode* t = head;
+	while (t != NULL)
+	{
+		cout << t->data;
+		t = t->next;
+	}
+	return 0;
+}
