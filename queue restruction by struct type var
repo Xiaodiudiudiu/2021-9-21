@@ -1,0 +1,29 @@
+#include<iostream>;
+
+struct queue
+{
+	int data[18];//n=9
+	int head;
+	int tail;
+};
+int main()
+{
+	using namespace std;
+	struct queue q;
+	int n;
+	q.head = 0;
+	q.tail = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> q.data[q.tail++];
+	}
+
+	while (q.head < q.tail)
+	{
+		cout <<q.data[q.head]<<' ';
+		++q.head;
+		q.data[q.tail++] = q.data[q.head++];
+	}
+	return 0;
+}
