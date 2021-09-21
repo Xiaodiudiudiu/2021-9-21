@@ -1,0 +1,32 @@
+#include<iostream>;
+
+int main()
+{
+	using namespace std;
+	char a[100], b[100] = {}; int len, mid, top=0, i = 0,next;
+	cin.get(a,100);
+	len = strlen(a);
+	mid = len / 2;
+
+	for (;i < mid; i++)
+	{
+		b[top] = a[i];
+		++top;
+	}
+
+	if (len % 2 == 0)
+		next = mid + 1; //偶数
+	else next = mid + 2;//奇数 vital
+
+
+	for (i = next; i < len; i++)
+	{
+		if (a[i] == b[top])
+			--top;
+		else break;
+	}
+	if (top == 0)
+		cout << "Yes";
+	else cout << "No";
+	return 0;
+}
